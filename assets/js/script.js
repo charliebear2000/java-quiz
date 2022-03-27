@@ -1,11 +1,16 @@
-// store the answer choices
 var timerEl = document.getElementById('countdown');
-var choices = [];
+var score = "";
+var questionText = document.querySelector("#questionText");
+var answerA = document.querySelector("#a");
+var answerB = document.querySelector("#b");
+var answerC = document.querySelector("#c");
+var answerD = document.querySelector("#d");
+var choice = "";
 
 
-// Timer that counts down from 20
+// Timer that counts down from 60
 function countdown() {
-  var timeLeft = 20;
+  var timeLeft = 60;
 
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
@@ -28,55 +33,86 @@ function countdown() {
   }, 1000);
 }
 
-var myQuestions = [
-   {
-     question: 'What is the block of javaScript code that is executed when "called"?',
-     answers: {
-       a: "event",
-       b: "function",
-       c: "string",
-       d: "object"
-     },
-     correctAnswer: "b"
-   },
-   {
-     question: "Which one is a way that you CANNOT delare a variable?",
-     answers: {
-       a: "var",
-       b: "let",
-       c: "declare",
-       d: "const"
-     },
-     correctAnswer: "c"
-   },
-   {
-     question: "What digit represents the first element in an array?",
-     answers: {
-       a: "0",
-       b: "1",
-       c: "-1",
-       d: "i"
-     },
-     correctAnswer: "a"
-   },
-   {
-     question: "What can be used to perform different actions based on different conditions?",
-     answers: {
-        a: "if",
-        b: "then",
-        c: "else",
-        d: "switch"
-     },
-     correctAnswer: "d"
-   },
-   {
-     question: "What statement lets you get out of a loop?",
-     answers: {
-        a: "end",
-        b: "break",
-        c: "jump",
-        d: "let"
-     },
-     correctAnswer: "b"
-   }
- ];
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+var questionList = [
+  'What is the block of javaScript code that is executed when "called"?',
+  'Which one is a way that you CANNOT delare a variable?',
+  'What digit represents the first element in an array?',
+  'What can be used to perform different actions based on different conditions?',
+  'What statement lets you get out of a loop?'
+]
+
+var ansA = ["event", "var", "0", "if", "end"]
+    
+var ansB = ["function", "let", "1", "then", "break"]
+
+var ansC = ["string", "declare", "-1", "else", "jump"]
+
+var ansD = ["object", "const", "i", "switch", "let"]
+    
+      // correctAnswer: 2
+      // correctAnswer: 3
+      // correctAnswer: 1
+      // correctAnswer: 4
+      // correctAnswer: 2
+  
+
+
+function questionOne() {
+
+    questionText.innerHTML = questionList[0];
+    a.innerHTML = ansA[0];
+    b.innerHTML = ansB[0];
+    c.innerHTML = ansC[0];
+    d.innerHTML = ansD[0];
+
+    document.getElementById("next").addEventListener("click", questionTwo);
+}
+
+function questionTwo() {
+
+  questionText.innerHTML = questionList[1];
+  a.innerHTML = ansA[1];
+  b.innerHTML = ansB[1];
+  c.innerHTML = ansC[1];
+  d.innerHTML = ansD[1];
+
+  document.getElementById("next").addEventListener("click", questionThree);
+}
+
+function questionThree() {
+
+  questionText.innerHTML = questionList[2];
+  a.innerHTML = ansA[2];
+  b.innerHTML = ansB[2];
+  c.innerHTML = ansC[2];
+  d.innerHTML = ansD[2];
+
+  document.getElementById("next").addEventListener("click", questionFour);
+}
+
+function questionFour() {
+
+  questionText.innerHTML = questionList[3];
+  a.innerHTML = ansA[3];
+  b.innerHTML = ansB[3];
+  c.innerHTML = ansC[3];
+  d.innerHTML = ansD[3];
+
+  document.getElementById("next").addEventListener("click", questionFive);
+}
+
+function questionFive() {
+
+  questionText.innerHTML = questionList[4];
+  a.innerHTML = ansA[4];
+  b.innerHTML = ansB[4];
+  c.innerHTML = ansC[4];
+  d.innerHTML = ansD[4];
+  next.style.display = "none";
+
+  document.getElementById("submit").addEventListener("click", results);
+}

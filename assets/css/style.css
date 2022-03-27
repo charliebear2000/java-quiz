@@ -49,6 +49,11 @@
    position: relative;
    top: -3px;
    box-shadow: 3px 3px var(--grey);
+   cursor: pointer;
+ }
+
+ .btn:hover {
+   background: #d6b55b;
  }
 
  .question-wrapper {
@@ -86,6 +91,12 @@
    background: var(--primary);
    border-radius: 12px;
    margin-bottom: 20px;
+   cursor: pointer;
+   font-size: 18px;
+ }
+
+ .answer:hover {
+    background: #d6b55b;
  }
  
  .navigation {
@@ -101,6 +112,11 @@
     color: var(--grey);
     background-color: var(--primary);
     border-radius: 12px;
+    cursor: pointer;
+ }
+
+ .nav-btn:hover {
+    background: #d6b55b;
  }
 
  .container {
