@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body onload="pageLoad()">
 
   <header>
     <h1 class="page-title">JavaScript Quiz</h1>
     <p>Click the button below to start the quiz.</p>
-    <button class="btn" id="start-quiz" onclick="countdown(); questionOne()">Start Quiz</button>
+    <button class="btn" id="start-quiz" onclick="countdownTimer(); questionOne()">Start Quiz</button>
     <div class="container">
       <h1 id="countdown"></h1>
     </div>
@@ -24,10 +24,10 @@
     <section class="question-wrapper"></section>
       <h2 id="questionText" class="question"></h2>
       <ul class="answer-choices">
-        <li id="a" class="answer">A</li>
-        <li id="b" class="answer">B</li>
-        <li id="c" class="answer">C</li>
-        <li id="d" class="answer">D</li>
+        <li id="a" class="answer" onclick="aAnswer()"></li>
+        <li id="b" class="answer" onclick="bAnswer()"></li>
+        <li id="c" class="answer" onclick="cAnswer()"></li>
+        <li id="d" class="answer" onclick="dAnswer()"></li>
       </ul>
   </section>
   </div>

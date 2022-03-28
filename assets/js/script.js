@@ -1,5 +1,5 @@
 var timerEl = document.getElementById('countdown');
-var score = "";
+var score = 0;
 var questionText = document.querySelector("#questionText");
 var answerA = document.querySelector("#a");
 var answerB = document.querySelector("#b");
@@ -7,9 +7,13 @@ var answerC = document.querySelector("#c");
 var answerD = document.querySelector("#d");
 var choice = "";
 
-
+function pageLoad() {
+  questions.style.display = "none";
+  submit.style.display = "none";
+  next.style.display = "none";
+}
 // Timer that counts down from 60
-function countdown() {
+function countdownTimer() {
   var timeLeft = 60;
 
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
@@ -59,60 +63,155 @@ var ansD = ["object", "const", "i", "switch", "let"]
       // correctAnswer: 4
       // correctAnswer: 2
   
+function aAnswer() {
+  a.style.backgroundColor = "#d6b55b";
+  b.style.backgroundColor = "#fde091fa";
+  c.style.backgroundColor = "#fde091fa";
+  d.style.backgroundColor = "#fde091fa";
+  choice = "a";
+}
 
+function bAnswer() {
+  b.style.backgroundColor = "#d6b55b";
+  a.style.backgroundColor = "#fde091fa";
+  c.style.backgroundColor = "#fde091fa";
+  d.style.backgroundColor = "#fde091fa";
+  choice = "b";
+}
+
+function cAnswer() {
+  c.style.backgroundColor = "#d6b55b";
+  b.style.backgroundColor = "#fde091fa";
+  a.style.backgroundColor = "#fde091fa";
+  d.style.backgroundColor = "#fde091fa";
+  choice = "c";
+}
+
+function dAnswer() {
+  d.style.backgroundColor = "#d6b55b";
+  b.style.backgroundColor = "#fde091fa";
+  c.style.backgroundColor = "#fde091fa";
+  a.style.backgroundColor = "#fde091fa";
+  choice = "d";
+}
 
 function questionOne() {
 
+  questions.style.display = "block";
+  next.style.display = "block";
     questionText.innerHTML = questionList[0];
     a.innerHTML = ansA[0];
     b.innerHTML = ansB[0];
     c.innerHTML = ansC[0];
     d.innerHTML = ansD[0];
 
+    if (choice == "b") {
+      score = 1;
+      console.log(score);
+    } else {
+      score = 0;
+    }
+  
     document.getElementById("next").addEventListener("click", questionTwo);
 }
 
 function questionTwo() {
 
+  a.style.backgroundColor = "#fde091fa";
+  b.style.backgroundColor = "#fde091fa";
+  c.style.backgroundColor = "#fde091fa";
+  d.style.backgroundColor = "#fde091fa";
+  next.style.backgroundColor = "#fde091fa";
   questionText.innerHTML = questionList[1];
   a.innerHTML = ansA[1];
   b.innerHTML = ansB[1];
   c.innerHTML = ansC[1];
   d.innerHTML = ansD[1];
 
+  if (choice == "c"){
+    score = score + 1;
+    console.log(score);
+  } else {
+    score = score;
+  }
+
   document.getElementById("next").addEventListener("click", questionThree);
 }
 
 function questionThree() {
 
+  a.style.backgroundColor = "#fde091fa";
+  b.style.backgroundColor = "#fde091fa";
+  c.style.backgroundColor = "#fde091fa";
+  d.style.backgroundColor = "#fde091fa";
+  next.style.backgroundColor = "#fde091fa";
   questionText.innerHTML = questionList[2];
   a.innerHTML = ansA[2];
   b.innerHTML = ansB[2];
   c.innerHTML = ansC[2];
   d.innerHTML = ansD[2];
 
+  if (choice == "a"){
+    score = score + 1;
+    console.log(score);
+  } else {
+    score = score;
+  }
+
   document.getElementById("next").addEventListener("click", questionFour);
 }
 
 function questionFour() {
 
+  a.style.backgroundColor = "#fde091fa";
+  b.style.backgroundColor = "#fde091fa";
+  c.style.backgroundColor = "#fde091fa";
+  d.style.backgroundColor = "#fde091fa";
+  next.style.backgroundColor = "#fde091fa";
   questionText.innerHTML = questionList[3];
   a.innerHTML = ansA[3];
   b.innerHTML = ansB[3];
   c.innerHTML = ansC[3];
   d.innerHTML = ansD[3];
 
+  if (choice == "d") {
+    score = score + 1;
+    console.log(score);
+  } else {
+    score = score;
+  }
+
   document.getElementById("next").addEventListener("click", questionFive);
 }
 
 function questionFive() {
 
+  a.style.backgroundColor = "#fde091fa";
+  b.style.backgroundColor = "#fde091fa";
+  c.style.backgroundColor = "#fde091fa";
+  d.style.backgroundColor = "#fde091fa";
+  next.style.backgroundColor = "#fde091fa";
   questionText.innerHTML = questionList[4];
   a.innerHTML = ansA[4];
   b.innerHTML = ansB[4];
   c.innerHTML = ansC[4];
   d.innerHTML = ansD[4];
+
+  if (choice == "b") {
+    score = score + 1;
+    console.log(score);
+  } else {
+    score = score;
+  }
+
+  submit.style.display = "block";
   next.style.display = "none";
 
   document.getElementById("submit").addEventListener("click", results);
+}
+
+function results() {
+  submit.style.display = "none";
+  questions.style.display = "none";
+  countdown.innerHTML = "Your score is " + score + ".";
 }
