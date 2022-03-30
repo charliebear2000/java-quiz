@@ -104,14 +104,12 @@ function questionOne() {
     b.innerHTML = ansB[0];
     c.innerHTML = ansC[0];
     d.innerHTML = ansD[0];
-
-    if (choice == "b") {
-      score = 1;
-      console.log(score);
-    } else {
-      score = 0;
+    console.log(score);
+    if (choice === "b") {
+      score = score + 1;
+      
     }
-  
+
     document.getElementById("next").addEventListener("click", questionTwo);
 }
 
@@ -128,12 +126,10 @@ function questionTwo() {
   c.innerHTML = ansC[1];
   d.innerHTML = ansD[1];
 
-  if (choice == "c"){
+  if (choice === "c"){
     score = score + 1;
     console.log(score);
-  } else {
-    score = score;
-  }
+ } 
 
   document.getElementById("next").addEventListener("click", questionThree);
 }
@@ -151,12 +147,10 @@ function questionThree() {
   c.innerHTML = ansC[2];
   d.innerHTML = ansD[2];
 
-  if (choice == "a"){
+  if (choice === "a"){
     score = score + 1;
     console.log(score);
-  } else {
-    score = score;
-  }
+  } 
 
   document.getElementById("next").addEventListener("click", questionFour);
 }
@@ -177,9 +171,7 @@ function questionFour() {
   if (choice == "d") {
     score = score + 1;
     console.log(score);
-  } else {
-    score = score;
-  }
+  } 
 
   document.getElementById("next").addEventListener("click", questionFive);
 }
@@ -200,8 +192,6 @@ function questionFive() {
   if (choice == "b") {
     score = score + 1;
     console.log(score);
-  } else {
-    score = score;
   }
 
   submit.style.display = "block";
