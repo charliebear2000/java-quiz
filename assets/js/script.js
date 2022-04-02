@@ -17,10 +17,8 @@ var answerD = document.getElementById('d');
 function pageLoad() {
   questions.style.display = "none";
   submit.style.display = "none";
-  next1.style.display = "none";
-  next2.style.display = "none";
-  next3.style.display = "none";
-  next4.style.display = "none";
+  next.style.display = "none";
+
 }
 // Timer that counts down from 60
 function countdownTimer() {
@@ -64,32 +62,17 @@ var questionList = [
   },
   {
     quest: "What digit represents the first element in an array?",
-    ans: {
-      a: "0",
-      b: "1",
-      c: "-1",
-      d: "i"
-    },
+    ans: ["0", "1", "-1", "i"],
     correct: "0"
   },
   {
     quest: "What can be used to perform different actions based on different conditions?",
-    ans: {
-      a: "if",
-      b: "then",
-      c: "else",
-      d: "switch"
-    },
+    ans: ["if", "then", "else", "switch"],
     correct: "switch"
   },
   {
     quest: "What statement lets you get out of a loop?",
-    ans: {
-      a: "end",
-      b: "break",
-      c: "jump",
-      d: "let"
-    },
+    ans: ["end", "break", "jump", "let"],
     correct: "break"
   }
 ]
@@ -100,38 +83,39 @@ var questionList = [
       // correctAnswer: switch
       // correctAnswer: break
   
-function aAnswer() {
-  a.style.backgroundColor = "#d6b55b";
-  b.style.backgroundColor = "#fde091fa";
-  c.style.backgroundColor = "#fde091fa";
-  d.style.backgroundColor = "#fde091fa";
-}
+// function aAnswer() {
+//   a.style.backgroundColor = "#d6b55b";
+//   b.style.backgroundColor = "#fde091fa";
+//   c.style.backgroundColor = "#fde091fa";
+//   d.style.backgroundColor = "#fde091fa";
+// }
 
-function bAnswer() {
-  b.style.backgroundColor = "#d6b55b";
-  a.style.backgroundColor = "#fde091fa";
-  c.style.backgroundColor = "#fde091fa";
-  d.style.backgroundColor = "#fde091fa";
-}
+// function bAnswer() {
+//   b.style.backgroundColor = "#d6b55b";
+//   a.style.backgroundColor = "#fde091fa";
+//   c.style.backgroundColor = "#fde091fa";
+//   d.style.backgroundColor = "#fde091fa";
+// }
 
-function cAnswer() {
-  c.style.backgroundColor = "#d6b55b";
-  b.style.backgroundColor = "#fde091fa";
-  a.style.backgroundColor = "#fde091fa";
-  d.style.backgroundColor = "#fde091fa";
-}
+// function cAnswer() {
+//   c.style.backgroundColor = "#d6b55b";
+//   b.style.backgroundColor = "#fde091fa";
+//   a.style.backgroundColor = "#fde091fa";
+//   d.style.backgroundColor = "#fde091fa";
+// }
 
-function dAnswer() {
-  d.style.backgroundColor = "#d6b55b";
-  b.style.backgroundColor = "#fde091fa";
-  c.style.backgroundColor = "#fde091fa";
-  a.style.backgroundColor = "#fde091fa";
-}
+// function dAnswer() {
+//   d.style.backgroundColor = "#d6b55b";
+//   b.style.backgroundColor = "#fde091fa";
+//   c.style.backgroundColor = "#fde091fa";
+//   a.style.backgroundColor = "#fde091fa";
+//}
 
 function questionOne() {
+  console.log("ques1")
 
   questions.style.display = "block";
-  next1.style.display = "block";
+  next.style.display = "block";
   startQuiz.style.display = "none";
   start.style.display = "none";  
 
@@ -154,18 +138,19 @@ function questionOne() {
     }
   })
 
-    document.getElementById("next1").addEventListener("click", questionTwo);
+    document.getElementById("next").addEventListener("click", questionTwo);
+    return;
 }
 
-function questionTwo() {
 
-  next1.style.display = "none";
-  next2.style.display = "block";
+function questionTwo() {
+  console.log("ques2")
+
   a.style.backgroundColor = "#fde091fa";
   b.style.backgroundColor = "#fde091fa";
   c.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
-  next1.style.backgroundColor = "#fde091fa";
+  next.style.backgroundColor = "#fde091fa";
   questionText.textContent = "Which one is a way that you CANNOT delare a variable?";
   answerA.textContent = "var";
   answerB.textContent = "let";
@@ -185,10 +170,11 @@ function questionTwo() {
     }
   })
 
-  document.getElementById("next2").addEventListener("click", questionThree);
+  document.getElementById("next").addEventListener("click", questionThree);
 }
 
 function questionThree() {
+  console.log("ques3")
 
   a.style.backgroundColor = "#fde091fa";
   b.style.backgroundColor = "#fde091fa";
@@ -201,15 +187,24 @@ function questionThree() {
   answerC.textContent = "-1";
   answerD.textContent = "i";
 
-  //if (choice === "a"){
-    //score = score + 1;
-    //console.log(score);
-  //} 
+  document.getElementById("questions").addEventListener("click", function(event)
+  {
+
+      console.log(event.target.textContent);
+      console.log(questionList[2].ans[0]);
+      if (event.target.textContent == questionList[2].ans[0]) {
+          timeLeft = timeLeft;
+    } else {
+        timeLeft = timeLeft - 5;
+
+    }
+  })
 
   document.getElementById("next").addEventListener("click", questionFour);
 }
 
 function questionFour() {
+  console.log("ques4")
 
   a.style.backgroundColor = "#fde091fa";
   b.style.backgroundColor = "#fde091fa";
@@ -221,15 +216,24 @@ function questionFour() {
   answerB.textContent = "then";
   answerC.textContent = "else";
   answerD.textContent = "switch";
-  //if (choice == "d") {
-    //score = score + 1;
-    //console.log(score);
-  //} 
+  
+  document.getElementById("questions").addEventListener("click", function(event)
+  {
 
+      console.log(event.target.textContent);
+      console.log(questionList[3].ans[3]);
+      if (event.target.textContent == questionList[3].ans[3]) {
+          timeLeft = timeLeft;
+    } else {
+        timeLeft = timeLeft - 5;
+
+    }
+  })
   document.getElementById("next").addEventListener("click", questionFive);
 }
 
 function questionFive() {
+  console.log("ques5")
 
   a.style.backgroundColor = "#fde091fa";
   b.style.backgroundColor = "#fde091fa";
@@ -242,10 +246,18 @@ function questionFive() {
   answerC.textContent = "jump";
   answerD.textContent = "let";
 
-  //if (choice == "b") {
-    //score = score + 1;
-    //console.log(score);
-  //}
+  document.getElementById("questions").addEventListener("click", function(event)
+  {
+
+      console.log(event.target.textContent);
+      console.log(questionList[4].ans[1]);
+      if (event.target.textContent == questionList[4].ans[1]) {
+          timeLeft = timeLeft;
+    } else {
+        timeLeft = timeLeft - 5;
+
+    }
+  })
 
   submit.style.display = "block";
   next.style.display = "none";
