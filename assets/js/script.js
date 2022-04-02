@@ -1,20 +1,30 @@
 var timerEl = document.getElementById('countdown');
-var score = 0;
-var questionText = document.querySelector("#questionText");
+var questionIndex = 0;
+var timeLeft = 60;
+/*var questionText = document.querySelector("#questionText");
 var answerA = document.querySelector("#a");
 var answerB = document.querySelector("#b");
 var answerC = document.querySelector("#c");
 var answerD = document.querySelector("#d");
-var choice = "";
+var choice = ""; */
+
+var questionText = document.getElementById('questionText');
+var answerA = document.getElementById('a');
+var answerB = document.getElementById('b');
+var answerC = document.getElementById('c');
+var answerD = document.getElementById('d');
 
 function pageLoad() {
   questions.style.display = "none";
   submit.style.display = "none";
-  next.style.display = "none";
+  next1.style.display = "none";
+  next2.style.display = "none";
+  next3.style.display = "none";
+  next4.style.display = "none";
 }
 // Timer that counts down from 60
 function countdownTimer() {
-  var timeLeft = 60;
+  
 
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
@@ -42,33 +52,59 @@ var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 
 var questionList = [
-  'What is the block of javaScript code that is executed when "called"?',
-  'Which one is a way that you CANNOT delare a variable?',
-  'What digit represents the first element in an array?',
-  'What can be used to perform different actions based on different conditions?',
-  'What statement lets you get out of a loop?'
+  {
+    quest: "What is the block of javaScript code that is executed when 'called'?",
+    ans: ["event", "function", "string", "object"],
+    correct: "function"
+  },
+  {
+    quest: "Which one is a way that you CANNOT delare a variable?",
+    ans: ["var", "let", "declare", "const"],
+    correct: "declare"
+  },
+  {
+    quest: "What digit represents the first element in an array?",
+    ans: {
+      a: "0",
+      b: "1",
+      c: "-1",
+      d: "i"
+    },
+    correct: "0"
+  },
+  {
+    quest: "What can be used to perform different actions based on different conditions?",
+    ans: {
+      a: "if",
+      b: "then",
+      c: "else",
+      d: "switch"
+    },
+    correct: "switch"
+  },
+  {
+    quest: "What statement lets you get out of a loop?",
+    ans: {
+      a: "end",
+      b: "break",
+      c: "jump",
+      d: "let"
+    },
+    correct: "break"
+  }
 ]
 
-var ansA = ["event", "var", "0", "if", "end"]
-    
-var ansB = ["function", "let", "1", "then", "break"]
-
-var ansC = ["string", "declare", "-1", "else", "jump"]
-
-var ansD = ["object", "const", "i", "switch", "let"]
-    
-      // correctAnswer: 2
-      // correctAnswer: 3
-      // correctAnswer: 1
-      // correctAnswer: 4
-      // correctAnswer: 2
+      // correctAnswer: function
+      // correctAnswer: declare
+      // correctAnswer: 0
+      // correctAnswer: switch
+      // correctAnswer: break
   
 function aAnswer() {
   a.style.backgroundColor = "#d6b55b";
   b.style.backgroundColor = "#fde091fa";
   c.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
-  choice = "a";
 }
 
 function bAnswer() {
@@ -76,7 +112,6 @@ function bAnswer() {
   a.style.backgroundColor = "#fde091fa";
   c.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
-  choice = "b";
 }
 
 function cAnswer() {
@@ -84,7 +119,6 @@ function cAnswer() {
   b.style.backgroundColor = "#fde091fa";
   a.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
-  choice = "c";
 }
 
 function dAnswer() {
@@ -92,46 +126,66 @@ function dAnswer() {
   b.style.backgroundColor = "#fde091fa";
   c.style.backgroundColor = "#fde091fa";
   a.style.backgroundColor = "#fde091fa";
-  choice = "d";
 }
 
 function questionOne() {
 
   questions.style.display = "block";
-  next.style.display = "block";
-    questionText.innerHTML = questionList[0];
-    a.innerHTML = ansA[0];
-    b.innerHTML = ansB[0];
-    c.innerHTML = ansC[0];
-    d.innerHTML = ansD[0];
-    console.log(score);
-    if (choice === "b") {
-      score = score + 1;
-      
-    }
+  next1.style.display = "block";
+  startQuiz.style.display = "none";
+  start.style.display = "none";  
 
-    document.getElementById("next").addEventListener("click", questionTwo);
+  questionText.textContent = "What is the block of javaScript code that is executed when 'called'?";
+  answerA.textContent = "event";
+  answerB.textContent = "function";
+  answerC.textContent = "string";
+  answerD.textContent = "object";
+    
+  document.getElementById("questions").addEventListener("click", function(event)
+  {
+
+      console.log(event.target.textContent);
+      console.log(questionList[0].ans[1]);
+      if (event.target.textContent == questionList[0].ans[1]) {
+          timeLeft = timeLeft;
+    } else {
+        timeLeft = timeLeft - 5;
+
+    }
+  })
+
+    document.getElementById("next1").addEventListener("click", questionTwo);
 }
 
 function questionTwo() {
 
+  next1.style.display = "none";
+  next2.style.display = "block";
   a.style.backgroundColor = "#fde091fa";
   b.style.backgroundColor = "#fde091fa";
   c.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
-  next.style.backgroundColor = "#fde091fa";
-  questionText.innerHTML = questionList[1];
-  a.innerHTML = ansA[1];
-  b.innerHTML = ansB[1];
-  c.innerHTML = ansC[1];
-  d.innerHTML = ansD[1];
+  next1.style.backgroundColor = "#fde091fa";
+  questionText.textContent = "Which one is a way that you CANNOT delare a variable?";
+  answerA.textContent = "var";
+  answerB.textContent = "let";
+  answerC.textContent = "declare";
+  answerD.textContent = "const";
 
-  if (choice === "c"){
-    score = score + 1;
-    console.log(score);
- } 
+  document.getElementById("questions").addEventListener("click", function(event)
+  {
 
-  document.getElementById("next").addEventListener("click", questionThree);
+      console.log(event.target.textContent);
+      console.log(questionList[1].ans[2]);
+      if (event.target.textContent == questionList[1].ans[2]) {
+          timeLeft = timeLeft;
+    } else {
+        timeLeft = timeLeft - 5;
+
+    }
+  })
+
+  document.getElementById("next2").addEventListener("click", questionThree);
 }
 
 function questionThree() {
@@ -141,16 +195,16 @@ function questionThree() {
   c.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
   next.style.backgroundColor = "#fde091fa";
-  questionText.innerHTML = questionList[2];
-  a.innerHTML = ansA[2];
-  b.innerHTML = ansB[2];
-  c.innerHTML = ansC[2];
-  d.innerHTML = ansD[2];
+  questionText.textContent = "What digit represents the first element in an array?";
+  answerA.textContent = "0";
+  answerB.textContent = "1";
+  answerC.textContent = "-1";
+  answerD.textContent = "i";
 
-  if (choice === "a"){
-    score = score + 1;
-    console.log(score);
-  } 
+  //if (choice === "a"){
+    //score = score + 1;
+    //console.log(score);
+  //} 
 
   document.getElementById("next").addEventListener("click", questionFour);
 }
@@ -162,16 +216,15 @@ function questionFour() {
   c.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
   next.style.backgroundColor = "#fde091fa";
-  questionText.innerHTML = questionList[3];
-  a.innerHTML = ansA[3];
-  b.innerHTML = ansB[3];
-  c.innerHTML = ansC[3];
-  d.innerHTML = ansD[3];
-
-  if (choice == "d") {
-    score = score + 1;
-    console.log(score);
-  } 
+  questionText.textContent = "What can be used to perform different actions based on different conditions?";
+  answerA.textContent = "if";
+  answerB.textContent = "then";
+  answerC.textContent = "else";
+  answerD.textContent = "switch";
+  //if (choice == "d") {
+    //score = score + 1;
+    //console.log(score);
+  //} 
 
   document.getElementById("next").addEventListener("click", questionFive);
 }
@@ -183,16 +236,16 @@ function questionFive() {
   c.style.backgroundColor = "#fde091fa";
   d.style.backgroundColor = "#fde091fa";
   next.style.backgroundColor = "#fde091fa";
-  questionText.innerHTML = questionList[4];
-  a.innerHTML = ansA[4];
-  b.innerHTML = ansB[4];
-  c.innerHTML = ansC[4];
-  d.innerHTML = ansD[4];
+  questionText.textContent = "What statement lets you get out of a loop?";
+  answerA.textContent = "end";
+  answerB.textContent = "break";
+  answerC.textContent = "jump";
+  answerD.textContent = "let";
 
-  if (choice == "b") {
-    score = score + 1;
-    console.log(score);
-  }
+  //if (choice == "b") {
+    //score = score + 1;
+    //console.log(score);
+  //}
 
   submit.style.display = "block";
   next.style.display = "none";

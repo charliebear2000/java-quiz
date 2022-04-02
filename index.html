@@ -13,8 +13,8 @@
 
   <header>
     <h1 class="page-title">JavaScript Quiz</h1>
-    <p>Click the button below to start the quiz.</p>
-    <button class="btn" id="start-quiz" onclick="countdownTimer(); questionOne()">Start Quiz</button>
+    <p id="start">Click the button below to start the quiz.</p>
+    <button class="btn" id="startQuiz" onclick="countdownTimer(); questionOne()">Start Quiz</button>
     <div class="container">
       <h1 id="countdown"></h1>
     </div>
@@ -32,7 +32,10 @@
   </section>
   </div>
   <div class="navigation">
-    <button id="next" class="nav-btn">Next Question</button>
+    <button id="next1" class="nav-btn">Next Question</button>
+    <button id="next2" class="nav-btn">Next Question</button>
+    <button id="next3" class="nav-btn">Next Question</button>
+    <button id="next4" class="nav-btn">Next Question</button>
     <button id="submit" class="nav-btn">Submit Quiz</button>
   </div>
     <div id="results"></div>
