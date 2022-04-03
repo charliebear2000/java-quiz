@@ -12,7 +12,7 @@
 <body onload="pageLoad()">
 
   <header>
-    <h1 class="page-title">JavaScript Quiz</h1>
+    <h1 class="page-title">JavaScript Redo Quiz</h1>
     <p id="start">Click the button below to start the quiz.</p>
     <button class="btn" id="startQuiz" onclick="countdownTimer(); questionOne()">Start Quiz</button>
     <div class="container">
@@ -20,22 +20,67 @@
     </div>
   </header>
 
-  <div id="questions" class="question-section">
+  <div id="question1" class="question-section">
     <section class="question-wrapper"></section>
-      <h2 id="questionText" class="question"></h2>
+      <h2 id="questionText" class="question">What is the block of javaScript code that is executed when "called"?</h2>
       <ul class="answer-choices">
-        <li id="a" class="answer"></li>
-        <li id="b" class="answer"></li>
-        <li id="c" class="answer"></li>
-        <li id="d" class="answer"></li>
+        <li id="a" class="answer" onclick="aAnswer(); wrongAnswer1()">event</li>
+        <li id="b" class="answer" onclick="bAnswer(); rightAnswer1()">function</li>
+        <li id="c" class="answer" onclick="cAnswer(); wrongAnswer1()">string</li>
+        <li id="d" class="answer" onclick="dAnswer(); wrongAnswer1()">object</li>
       </ul>
-  </section>
+    </section>
   </div>
-  <div class="navigation">
-    <button id="next" class="nav-btn">Next Question</button>
-    <button id="submit" class="nav-btn">Submit Quiz</button>
+
+  <div id="question2" class="question-section">
+    <section class="question-wrapper"></section>
+      <h2 id="questionText" class="question">Which one is a way that you CANNOT delare a variable?</h2>
+      <ul class="answer-choices">
+        <li class="answer" onclick="aAnswer(); wrongAnswer2()">var</li>
+        <li class="answer" onclick="bAnswer(); wrongAnswer2()">let</li>
+        <li class="answer" onclick="cAnswer(); rightAnswer2()">declare</li>
+        <li class="answer" onclick="dAnswer(); wrongAnswer2()">const</li>
+      </ul>
+    </section>
   </div>
-    <div id="results"></div>
+
+  <div id="question3" class="question-section">
+    <section class="question-wrapper"></section>
+      <h2 id="questionText" class="question">What digit represents the first element in an array?</h2>
+      <ul class="answer-choices">
+        <li id="a" class="answer" onclick="aAnswer(); rightAnswer3()">0</li>
+        <li id="b" class="answer" onclick="bAnswer(); wrongAnswer3()">1</li>
+        <li id="c" class="answer" onclick="cAnswer(); wrongAnswer3()">-1</li>
+        <li id="d" class="answer" onclick="dAnswer(); wrongAnswer3()">i</li>
+      </ul>
+    </section>
+  </div>
+
+  <div id="question4" class="question-section">
+    <section class="question-wrapper"></section>
+      <h2 id="questionText" class="question">What can be used to perform different actions based on different conditions?</h2>
+      <ul class="answer-choices">
+        <li id="a" class="answer" onclick="aAnswer(); wrongAnswer4()">if</li>
+        <li id="b" class="answer" onclick="bAnswer(); wrongAnswer4()">then</li>
+        <li id="c" class="answer" onclick="cAnswer(); wrongAnswer4()">else</li>
+        <li id="d" class="answer" onclick="dAnswer(); rightAnswer4()">switch</li>
+      </ul>
+    </section>
+  </div>
+
+  <div id="question5" class="question-section">
+    <section class="question-wrapper"></section>
+      <h2 id="questionText" class="question">What statement lets you get out of a loop?</h2>
+      <ul class="answer-choices">
+        <li id="a" class="answer" onclick="aAnswer(); wrongAnswer5()">end</li>
+        <li id="b" class="answer" onclick="bAnswer(); rightAnswer5()">break</li>
+        <li id="c" class="answer" onclick="cAnswer(); wrongAnswer5()">jump</li>
+        <li id="d" class="answer" onclick="dAnswer(); wrongAnswer5()">let</li>
+      </ul>
+    </section>
+  </div>
+
+  <div id="results" class="answer"></div>
   <script src="./assets/js/script.js"></script>
 </body>
 
