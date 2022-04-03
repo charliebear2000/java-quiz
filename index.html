@@ -12,8 +12,10 @@
 <body onload="pageLoad()">
 
   <header>
-    <h1 class="page-title">JavaScript Redo Quiz</h1>
-    <p id="start">Click the button below to start the quiz.</p>
+    <h1 class="page-title">JavaScript Quiz</h1>
+    <p id="start">Click the button below to start the quiz. Five seconds will be added to your time when you answer correctly.
+      Five seconds will be subtracted from your time when you answer incorrectly. Good luck!
+    </p>
     <button class="btn" id="startQuiz" onclick="countdownTimer(); questionOne()">Start Quiz</button>
     <div class="container">
       <h1 id="countdown"></h1>
@@ -80,7 +82,13 @@
     </section>
   </div>
 
-  <div id="results" class="answer"></div>
+  <div>
+  <h3 id="results" class="navigation"></h3>
+  <button class="nav-btn" id="saveName" type="submit">Sumbit Name</button>
+  <ul class="score-results" id="score-list">
+    <li class="top-scores">Top Scores</li>
+  </ul>
+  </div>
   <script src="./assets/js/script.js"></script>
 </body>
 

@@ -1,12 +1,18 @@
 var timerEl = document.getElementById('countdown');
 var questionIndex = 0;
 var timeLeft = 60;
+var leaderBoard = [];
 
 var answerA = document.getElementById('a');
 var answerB = document.getElementById('b');
 var answerC = document.getElementById('c');
 var answerD = document.getElementById('d');
 var score = document.getElementById('results');
+var submitName = document.getElementById('saveName');
+var startQuiz = document.getElementById('startQuiz');
+var directions = document.getElementById('start');
+var scoreListEl = document.querySelector('#score-list');
+
 
 function pageLoad() {
   question1.style.display = "none";
@@ -15,6 +21,8 @@ function pageLoad() {
   question4.style.display = "none";
   question5.style.display = "none";
   results.style.display = "none";
+  submitName.style.display = "none";
+  
 }
 // Timer that counts down from 60
 function countdownTimer() {
@@ -77,17 +85,18 @@ function dAnswer() {
 
 function questionOne() {
   console.log("ques1")
-
+  startQuiz.style.display = "none";
   question1.style.display = "block";
+  directions.style.display = "none";
 } 
 
 function wrongAnswer1() {
-  timeLeft = timeLeft - 5;
+  timeLeft = timeLeft - 4;
   questionTwo();
 }
 
 function rightAnswer1() {
-  timeLeft = timeLeft + 5;
+  timeLeft = timeLeft + 6;
   questionTwo();
 }
   
@@ -99,12 +108,12 @@ function questionTwo() {
 } 
  
 function wrongAnswer2() {
-  timeLeft = timeLeft - 5;
+  timeLeft = timeLeft - 4;
   questionThree();
 }
 
 function rightAnswer2() {
-  timeLeft = timeLeft + 5;
+  timeLeft = timeLeft + 6;
   questionThree();
 }
 
@@ -116,12 +125,12 @@ function questionThree() {
 }
 
 function wrongAnswer3() {
-  timeLeft = timeLeft - 5;
+  timeLeft = timeLeft - 4;
   questionFour();
 }
 
 function rightAnswer3() {
-  timeLeft = timeLeft + 5;
+  timeLeft = timeLeft + 6;
   questionFour();
 }
 
@@ -133,13 +142,13 @@ function questionFour() {
 }
 
 function wrongAnswer4() {
-  timeLeft = timeLeft - 5;
+  timeLeft = timeLeft - 4;
   questionFive();
 }
 
 function rightAnswer4() {
-  timeLeft = timeLeft + 5;
-  questionfive();
+  timeLeft = timeLeft + 6;
+  questionFive();
 }
 
 function questionFive() {
@@ -150,12 +159,12 @@ function questionFive() {
 }
 
 function wrongAnswer5() {
-  timeLeft = timeLeft - 5;
+  timeLeft = timeLeft - 4;
   finalScore();
 }
 
 function rightAnswer5() {
-  timeLeft = timeLeft + 5;
+  timeLeft = timeLeft + 6;
   finalScore();
 }
 
@@ -167,5 +176,15 @@ function finalScore() {
   question3.style.display = "none";
   question4.style.display = "none";
   question5.style.display = "none";
+  submitName.style.display = "block";
   score.innerHTML = "Your score is " + timeLeft + ".";
 }
+
+var createScoreList = function () {
+  var topScoreEl = document.createElement("li");
+  topScoreEl.className = "top-score";
+  scoreListEl.appendChild(topScoreEl);
+  topScoreEl.textContent = "Amy";
+};
+
+submitName.addEventListener("click", createScoreList); 
