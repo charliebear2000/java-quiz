@@ -7,11 +7,13 @@ var answerA = document.getElementById('a');
 var answerB = document.getElementById('b');
 var answerC = document.getElementById('c');
 var answerD = document.getElementById('d');
-var score = document.getElementById('results');
-var submitName = document.getElementById('saveName');
+var finalResults = document.querySelector('#results');
+var scoreName = document.querySelector('#name-form');
+var submitName = document.querySelector('#saveName');
 var startQuiz = document.getElementById('startQuiz');
 var directions = document.getElementById('start');
 var scoreListEl = document.querySelector('#score-list');
+var formEl = document.querySelector('#name-blank');
 
 
 function pageLoad() {
@@ -20,7 +22,7 @@ function pageLoad() {
   question3.style.display = "none";
   question4.style.display = "none";
   question5.style.display = "none";
-  results.style.display = "none";
+  scoreName.style.display = "none";
   submitName.style.display = "none";
   
 }
@@ -48,13 +50,7 @@ function countdownTimer() {
     }
   }, 1000);
 }
-
-// var quizContainer = document.getElementById('quiz');
-// var resultsContainer = document.getElementById('results');
-// var submitButton = document.getElementById('submit');
-
-
-  
+ 
 function aAnswer() {
   answerA.style.backgroundColor = "#d6b55b";
   answerB.style.backgroundColor = "#fde091fa";
@@ -170,21 +166,23 @@ function rightAnswer5() {
 
 function finalScore() {
   timerEl.style.display = "none";
-  results.style.display = "block";
+  scoreName.style.display = "block";
   question1.style.display = "none";
   question2.style.display = "none";
   question3.style.display = "none";
   question4.style.display = "none";
   question5.style.display = "none";
   submitName.style.display = "block";
-  score.innerHTML = "Your score is " + timeLeft + ".";
+  finalResults.innerHTML = "Your score is " + timeLeft + ".";
 }
 
-var createScoreList = function () {
+var createScoreList = function (event) {
+  console.log("name");
+  event.preventDefault();
   var topScoreEl = document.createElement("li");
-  topScoreEl.className = "top-score";
+  topScoreEl.className = "score-results";
   scoreListEl.appendChild(topScoreEl);
   topScoreEl.textContent = "Amy";
 };
 
-submitName.addEventListener("click", createScoreList); 
+formEl.addEventListener("submit", createScoreList); 
