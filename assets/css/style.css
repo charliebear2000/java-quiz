@@ -38,6 +38,15 @@
    font-size: 2rem;
  }
 
+ /* countdown container*/
+ .container {
+  margin: auto;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+ /* button to start quiz */
  .btn {
    outline: none;
    border: none;
@@ -56,6 +65,7 @@
    background: #d6b55b;
  }
 
+/* question section */
  .question-wrapper {
    flex: 1;
    margin: 0 20px 20px;
@@ -75,15 +85,7 @@
    font-size: 2.6rem;
  }
 
- .answer-choice {
-   padding: 15px;
-   height: calc(100% - 50px);
-   background: rgb(196, 196, 196);
-   border-radius: 12px;
-   border: 2px solid var(--grey);
-
- }
-
+/* answer section */
  .answer {
    list-style: none;
    padding: 15px 15px;
@@ -98,14 +100,8 @@
  .answer:hover {
     background: #d6b55b;
  }
- 
- .navigation {
-    display: flex;
-    font-size:24px;
-    text-align: center;
-    
- }
 
+ /* submit name button */
  .nav-btn {
    display: flex;
     padding: 10px;
@@ -120,13 +116,7 @@
     background: #d6b55b;
  }
 
- .container {
-   margin: auto;
-   width: 100%;
-   height: 50px;
-   text-align: center;
- }
-
+ /* name input box */
  input {
   width: 30%;
   padding: 12px 20px;
@@ -136,11 +126,13 @@
   background-color: #ededed;
  }
  
+ /* name input and button section */
  .form-group {
    display: flex;
    justify-content: center;
  }
 
+ /* score results section */
  .score-results {
    display: flex;
    justify-content: center;
