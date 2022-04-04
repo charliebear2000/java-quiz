@@ -126,4 +126,28 @@
    height: 50px;
    text-align: center;
  }
+
+ input {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #ededed;
+ }
  
+ .form-group {
+   display: flex;
+   justify-content: center;
+ }
+
+ .score-results {
+   display: flex;
+   justify-content: center;
+   padding: 0 20px;
+   font-size: 40px;
+ }
+
+ .top-scores {
+   list-style: none;
+ }
