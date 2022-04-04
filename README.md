@@ -9,7 +9,7 @@ This is an assignment for my coding bootcamp. The assignment is to create a time
 * When the game is over, then the player can save their name.
 
 ### Screenshot
-![Amy Rawls Bio Website](https://github.com/charliebear2000/java-quiz/blob/main/website-screenshot.png?raw=true)
+![Amy Rawls java quiz Website](https://github.com/charliebear2000/java-quiz/blob/main/website-screenshot.PNG?raw=true)
 
 #### URL
 https://charliebear2000.github.io/java-quiz/
