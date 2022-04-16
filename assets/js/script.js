@@ -176,75 +176,64 @@ function finalScore() {
   submitName.style.display = "block";
   // Use `clearInterval()` to stop the timer
   clearInterval(timeInterval);
+  loadScores();
 }
 
 // creats score list
-var createScoreList = function (event) {
+var createScoreList = function(event) {
   event.preventDefault();
-  var playerNameInput = document.querySelector("input[name='player-name']").value;
+  var name = document.getElementById('name').value;
+  console.log(name)
 
   // if name is empty when submitted, give alert
-  if (playerNameInput === "") {
+  if (!name) {
     alert("Please enter your name.");
     return;
-    // shows name and score
-  } else {
+    
+  } 
     var scoreDataObj = {
-      name: playerNameInput,
+      name: name,
       score: timeLeft
     };
     console.log(scoreDataObj);
     createListEl(scoreDataObj);
+
+    // puts scores in an array
+    leaderBoard.push(scoreDataObj);
+
+    localStorage.setItem('leaderBoard', JSON.stringify(leaderBoard));
   }
-  
-};
 
 var createListEl = function(scoreDataObj) {
-  formEl.style.display = "none";
   var topScoreEl = document.createElement("li");
   topScoreEl.className = "score-results";
   scoreListEl.appendChild(topScoreEl);
   topScoreEl.innerHTML = scoreDataObj.name + "'s score: " + scoreDataObj.score;
-
-  // save score as an object
-  scoreDataObj.id = scoreIdCounter;
-
-  // push the name and score into the leaderboard array
-  leaderBoard.push(scoreDataObj);
-
-  // save score to localStorage
-  saveScores = function() {
-    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
-    console.log("stored");
-  };
-  //saveScores();
-
-  // increase score counter for next unique score id
-  scoreIdCounter++;
-
-  loadScores();
-}
+};
 
 var loadScores = function() {
-  var savedScores = localStorage.getItem("leaderBoard");
+  // empty the score list to prevent duplicate scores
+  scoreListEl.innerHTML = "";
+
+  // put scores into an array
+  leaderBoard = JSON.parse(localStorage.getItem('leaderBoard')) || [];
+
   // if there are no scores, set leaderBoard to an empty array
-  if(!savedScores) {
-    console.log("no score");
+  if (!leaderBoard) {
+    console.log("no scores");
     return false;
+
   } else {
     console.log("saved score found!");
-    // else, load up saved scores
 
-    // parse into array of objects
-    savedScores = JSON.parse(savedScores);
-
-    // loop through saved Scores array
-    for (var i = 0; i < savedScores.length; i++) {
-      // pass each task object into the 'createListEl()' function
-      createListEl(savedScores[i]);
+    //list scores on page
+    for (var i = 0; i < leaderBoard.length; i++) {
+      createListEl(leaderBoard[i]);
     }
   }
 };
+  
+
 
 // makes submit name button as well as 'enter' show the name and score
 formEl.addEventListener("submit", createScoreList); 
