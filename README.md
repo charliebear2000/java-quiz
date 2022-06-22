@@ -1,4 +1,4 @@
-# Java Quiz
+# JavaScript Quiz
 ***
 
 ## General Info
